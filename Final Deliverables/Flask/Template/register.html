@@ -1,0 +1,151 @@
+<html>
+  <head>
+    <title>Register</title>
+    <style type="text/css">
+      #topmenu {
+        width: 100%;
+        background-color: 312D2D;
+        height: 50px;
+      }
+      #hedder {
+        color: white;
+        font-size: large;
+        padding-top: 13px;
+        padding-left: 40px;
+      }
+      #home {
+        float: right;
+        padding-top: 13px;
+        padding-right: 50px;
+        color: rgb(222, 216, 216);
+        font-size: medium;
+      }
+      #login {
+        float: right;
+        padding-top: 13px;
+        padding-right: 50px;
+        color: rgb(222, 216, 216);
+        font-size: medium;
+      }
+      #register {
+        float: right;
+        padding-top: 13px;
+        padding-right: 50px;
+        color: rgb(222, 216, 216);
+        font-size: medium;
+      }
+      #box {
+        height: 300px;
+        width: 500px;
+        background-color: antiquewhite;
+        margin: 10px;
+        border-color: black;
+        border-width: 25px;
+      }
+      div.background {
+        border: 2px solid gray;
+        height: 350px;
+        width: 500px;
+        margin: auto;
+        margin-top: 7%;
+      }
+      #registerlogo {
+        text-align: center;
+        margin-top: 20px;
+      }
+      #textcontent {
+        margin-top: 28px;
+        margin-left: 25px;
+      }
+      div.choice {
+        border: 2px solid gray;
+        height: 35px;
+        width: 500px;
+        background-color: rgb(230, 227, 227);
+        margin: auto;
+        margin-top: 0%;
+      }
+
+      #question {
+        margin-top: 7px;
+      }
+      #choice-login {
+        color: rgb(67, 64, 247);
+        text-decoration: underline;
+        margin-left: 200px;
+        margin-top: -20px;
+      }
+    </style>
+  </head>
+  <body onload="flashMessage()">
+    <div id="topmenu">
+      <div id="login">
+        <a href="{{ url_for('login') }}" style="color: white;text-decoration: none;">Login</a>
+      </div>
+      <div id="home">
+        <a href="{{ url_for('dashboard') }}" style="color: white;text-decoration: none;">Home</a>
+      </div>
+      <div id="hedder">Vehicle Damage Detection</div>
+    </div>
+    <div class="background">
+      <div id="registerlogo">
+        <img
+          src="/static/images/login.png"
+          alt="login logo"
+          style="width: 100px; height: 100px; border-radius: 50%"
+        />
+      </div>
+      <div id="textcontent">
+        <form action="register" method="POST">
+          <script>
+            function flashMessage(){
+              if("{{flash_message}}" == "True"){
+                alert("account with this email id already exist")
+              }
+              
+            }
+          </script>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Enter Name"
+            style="width: 440px; height: 35px; margin-bottom: 15px"
+          />
+          <input
+            type="text"
+            name="email"
+            id="email"
+            placeholder="Enter Email ID"
+            style="width: 440px; height: 35px; margin-bottom: 15px"
+          />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Enter Password"
+            style="width: 440px; height: 35px; margin-bottom: 15px"
+          />
+          <input
+            type="submit"
+            value="Register"
+            name="submit"
+            style="
+              width: 440px;
+              height: 35px;
+              text-align: center;
+              background-color: black;
+              color: white;
+            "
+          />
+        </form>
+      </div>
+    </div>
+    <div class="choice">
+      <div id="question">Already have an account?</div>
+      <div id="choice-login">
+        <a href="{{ url_for('login') }}" style="color: #7ed8ff;">Login</a>
+      </div>
+    </div>
+  </body>
+</html>
