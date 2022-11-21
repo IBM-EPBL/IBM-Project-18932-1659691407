@@ -1,0 +1,154 @@
+<html>
+  <head>
+    <title>index</title>
+    <style type="text/css">
+      #topmenu {
+        width: 100%;
+        background-color: 312D2D;
+        height: 50px;
+      }
+      #hedder {
+        color: white;
+        padding-top: 13px;
+        padding-left: 60px;
+      }
+
+      #home {
+        float: right;
+        padding-top: 13px;
+        padding-right: 50px;
+        color: rgb(222, 216, 216);
+        font-size: medium;
+      }
+      #login {
+        float: right;
+        padding-top: 13px;
+        padding-right: 50px;
+        color: rgb(222, 216, 216);
+        font-size: medium;
+      }
+      #register {
+        float: right;
+        padding-top: 13px;
+        padding-right: 50px;
+        color: rgb(222, 216, 216);
+        font-size: medium;
+      }
+      #prediction {
+        float: right;
+        padding-top: 13px;
+        padding-right: 50px;
+        color: rgb(222, 216, 216);
+        font-size: medium;
+      }
+      #about {
+        text-align: center;
+        padding-top: 10%;
+        color: gray;
+        font-size: 20px;
+      }
+      #content {
+        padding-top: 50px;
+        padding-left: 40px;
+        padding-right: 40px;
+        font-size: large;
+      }
+      #footer {
+        width: 99%;
+        background-color: 312D2D;
+        height: 50px;
+        position: absolute;
+        bottom: 1%;
+      }
+      #textcontent {
+        color: white;
+        font-size: 15px;
+        padding-left: 18%;
+        padding-top: 1%;
+      }
+      #logo {
+        margin-top: -1.5%;
+        margin-right: 28%;
+        float: right;
+      }
+    </style>
+  </head>
+  <body onload="flashMessage()">
+    <div id="topmenu">
+      <div id="login">
+        <a href="{{ url_for('logout') }}" style="color: white;text-decoration: none;">Logout</a>
+      </div>
+      <div id="home">
+        <a href="{{ url_for('dashboard') }}" style="color: white;text-decoration: none;">Home</a>
+      </div>
+      <div id="hedder">
+        Intelligent Vehicle Damage Assessment & Cost Estimator for Insurance
+        Companies
+      </div>
+    </div>
+    <form action="prediction" method="POST"  enctype="multipart/form-data">
+      <input type="file" id="myFile" name="myFile">
+      <input type="submit">
+      <script>
+        function flashMessage(){
+          if("{{flash_message}}" == "True"){
+          //   alert("invalid credentials")
+          //   const im = document.createElement('img');
+          // im.src = "{{url_for('static', filename='imagedata/save.png')}}";
+          // im.height = "200px";
+          // im.width = '200px';
+          // im.alt = 'hello world'
+          // document.getElementById('about').appendChild(im);
+            document.getElementById('image').src = 'static/imagedata/save.png';
+            const e = document.getElementById("qwerty");
+            const para = document.createElement("p");
+            const node = document.createTextNode("The prediction of vehicle is : | {{value}} |");
+            para.appendChild(node);
+            e.appendChild(para);
+          }
+        }
+      </script>
+    </form>
+    <!-- <script>
+      function flashMessage(){
+        if("{{ flash_message }}"=='True'){
+          const im = document.createElement('img');
+          im.src = "{{url_for('static', filename='static/image data/save.png')}}";
+          im.height = "200px";
+          im.width = '200px';
+          im.alt = 'hello world'
+        }
+      }
+    </script> -->
+  <!-- <img src="{{url_for('static', filename='static/image data/save.png')}}" alt=""
+    height="200px"
+    width="200px"
+    /> -->
+    <div id="about">
+      <div id="qwerty">
+        <p></p>
+      </div>
+      <hr style="width: 30%" color="yellow" />
+      <img src="static/images/bsi1.png" height="250px" width="400px" alt="" id="image">
+    </div>
+
+    <div id="footer">
+      <div id="textcontent">Copyright</div>
+      <div id="logo">
+        <img
+          src="/static/images/twitter20.jpg"
+          height="28px"
+          width="28px"
+          style="border-radius: 18%; margin-right: 40px"
+        />
+
+        <img
+          src="/static/images/linkedin20.jpg"
+          height="28px"
+          width="28px"
+          style="margin-left: 30px; border-radius: 18%"
+        />
+      </div>
+    </div>
+  </body>
+</html>
