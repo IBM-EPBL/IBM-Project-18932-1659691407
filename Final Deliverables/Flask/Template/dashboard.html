@@ -1,0 +1,243 @@
+<html>
+  <head>
+    <title>
+      Intelligent Vehicle Damage Assessment and Cost Estimator for insurance
+      Companies
+    </title>
+    <style type="text/css">
+      #topmenu {
+        width: 100%;
+        background-color: 312D2D;
+        height: 50px;
+      }
+      #hedder {
+        color: white;
+        padding-top: 13px;
+        padding-left: 60px;
+      }
+
+      #home {
+        float: right;
+        padding-top: 13px;
+        padding-right: 50px;
+        color: rgb(222, 216, 216);
+        font-size: medium;
+      }
+      #login {
+        float: right;
+        padding-top: 13px;
+        padding-right: 50px;
+        color: rgb(222, 216, 216);
+        font-size: medium;
+      }
+      #register {
+        float: right;
+        padding-top: 13px;
+        padding-right: 50px;
+        color: rgb(222, 216, 216);
+        font-size: medium;
+      }
+      #prediction {
+        float: right;
+        padding-top: 13px;
+        padding-right: 50px;
+        color: rgb(222, 216, 216);
+        font-size: medium;
+      }
+      #about {
+        text-align: center;
+        padding-top: 10%;
+        color: gray;
+        font-size: 20px;
+      }
+      #footer {
+        width: 99%;
+        background-color: 312D2D;
+        height: 50px;
+        position: absolute;
+        bottom: 1%;
+      }
+      #textcontent {
+        color: white;
+        font-size: 15px;
+        padding-left: 18%;
+        padding-top: 1%;
+      }
+      #logo {
+        margin-top: -1.5%;
+        margin-right: 28%;
+        float: right;
+      }
+      .container {
+        display: flex;
+      }
+      #vehicle_img {
+        margin-top: 4%;
+        margin-left: 5%;
+      }
+      #topic_content {
+        font-family: Georgia;
+        font-size: large;
+        padding-top: 4%;
+        color: DodgerBlue;
+        padding-right: 10%;
+      }
+      .pname1 {
+        margin-top: 3%;
+        font-weight: 600 !important;
+        font-size: large;
+        color: SlateBlue !important;
+      }
+      .login_prediction {
+        display: flex;
+      }
+      #login_details {
+        padding-left: 10%;
+      }
+      #signin {
+        text-align: center;
+        padding-bottom: 10%;
+        font-size: large;
+      }
+      #predict {
+        text-align: right;
+      }
+      #blink {
+        color: red;
+        animation: blinker 0.9s linear infinite;
+        font-weight: bold;
+      }
+      @keyframes blinker {
+        50% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body onload="flashMessage()">
+    <script>
+      function flashMessage(){
+        if("{{flash_message}}" == "True"){
+          alert("account created successfully")
+        }
+        if("{{flash_message}}" == "Fals"){
+                alert("invalid credentials")
+        }
+        if("{{flash_message}}" == "Fal"){
+          alert("Logged in successfully")
+        }
+      }
+    </script>
+    <div id="topmenu">
+      <div id="prediction">
+        <a href="{{ url_for('prediction') }}" style="color: white;text-decoration: none;">prediction</a>
+      </div>
+      <div id="register">
+        <a href="{{ url_for('register') }}" style="color: white;text-decoration: none;">Register</a>
+      </div>
+      <div id="login">
+        <a href="{{ url_for('login') }}" style="color: white;text-decoration: none;">Login</a>
+      </div>
+      <div id="home">
+        <a href="{{ url_for('dashboard') }}" style="color: white;text-decoration: none;">Home</a>
+      </div>
+      <div id="hedder">
+        Intelligent Vehicle Damage Assessment & Cost Estimator for Insurance
+        Companies
+      </div>
+    </div>
+    <div class="container">
+      <div id="vehicle_img">
+        <img
+          src="/static/images/bsi1.png"
+          alt="Damaged Vehicle"
+          width="80%"
+          height="auto"
+        />
+      </div>
+      <div id="topic_content">
+        <p>
+          <i>
+              <b>Vehicle Damage detection </b> uses algorithms to automatically
+            detect a vehicle's exterior body and assess its injuries and the
+            extent of the damage. Here damage to the vehicle are identified not
+            only for insurance purpose but also for repair cost estimation.
+          </i>
+        </p>
+      </div>
+    </div>
+    <div id="slider_text">
+      <marquee
+        class="pname1"
+        direction="left"
+        behavior="scroll"
+        scrollamount="10"
+        >Login to know more about the level of damage and cost
+        estimation</marquee
+      >
+    </div>
+    <div class="login_prediction">
+      <div id="login_details" style="padding-top: 5%">
+        <div id="signin">
+          <b><i>Log in</i></b>
+        </div>
+        <form action="dashboard" method="POST">
+          <input
+            type="text"
+            name="email"
+            id="email"
+            placeholder="Enter registered email ID"
+            style="width: 150%; height: 35px"
+          /><br />
+          <br />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Enter Password"
+            style="width: 150%; height: 35px"
+          /><br />
+          <br />
+          <input
+            type="submit"
+            name="submit"
+            id="submit"
+            value="Login"
+            style="
+              width: 150%;
+              height: 35px;
+              text-align: center;
+              background-color: black;
+              color: white;
+            "
+          />
+        </form>
+      </div>
+      <div id="predict" style="text-align: center;margin-left: 25%;">
+        <p>
+          <b>To predict the cost for the damage in vehicle and percentage of damage in car </b>
+        </p>
+        <!--<p id="blink">Click Here!</p>-->
+      </div>
+    </div>
+
+    <div id="footer">
+      <div id="textcontent">Copyright</div>
+      <div id="logo">
+        <img
+          src="/static/images/twitter20.jpg"
+          height="28px"
+          width="28px"
+          style="border-radius: 18%; margin-right: 40px"
+        />
+
+        <img
+          src="/static/images/linkedin20.jpg"
+          height="28px"
+          width="28px"
+          style="margin-left: 30px; border-radius: 18%"
+        />
+      </div>
+    </div>
+  </body>
+</html>
